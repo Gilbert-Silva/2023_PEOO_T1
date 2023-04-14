@@ -1,0 +1,11 @@
+1. Mostrar situação do repositório
+git status
+
+2. Adicionar alterações
+git add .
+
+3. Confimar alterações
+git commit -m "Mensagem"
+
+4. Enviar alterações para o GitHub
+git push
