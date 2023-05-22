@@ -42,3 +42,14 @@ class UI:
 
 UI.main()
 
+
+def calc_media(self):
+  return (2 * n1 ...)/10
+
+def calc_media_final():
+  media_parcial = self.calc_media()
+  if media_parcial < 60:
+    return (media_parcial + self.__provafinal)/2
+  else:
+    return media_parcial
+
