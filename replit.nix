@@ -1,6 +1,6 @@
 { pkgs }: {
   deps = [
-    pkgs.git push
+    pkgs.git
     pkgs.python310Full
     pkgs.replitPackages.prybar-python310
     pkgs.replitPackages.stderred
