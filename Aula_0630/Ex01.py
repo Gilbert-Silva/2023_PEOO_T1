@@ -49,7 +49,8 @@ class UI:
       if op == 3:
         print(x.artilheiro())
       
-#UI.main()
+UI.main()
+"""
 a = Jogador("um", 10)
 b = Jogador("dois", 20)
 x = Time("IFRN")
@@ -57,5 +58,5 @@ x.inserir(a)
 x.inserir(b)
 for j in x.listar(): print(j)
 print(x.artilheiro())
-
+"""
   
