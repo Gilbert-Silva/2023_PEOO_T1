@@ -1,3 +1,4 @@
+import json
 class Cliente:
   def __init__(self, id, nome, email, fone):
     self.__id = id
@@ -19,30 +20,53 @@ class NCliente:
   __clientes = []         # lista de clientes inicia vazia
   @classmethod
   def inserir(cls, obj):
+    NCliente.abrir()
     id = 0 # encontrar o maior id já usado
     for cliente in cls.__clientes:
       if cliente.get_id() > id: id = cliente.get_id()
     obj.set_id(id + 1)
     cls.__clientes.append(obj)  # insere um cliente (obj) na lista
+    NCliente.salvar()
   @classmethod
   def listar(cls):
+    NCliente.abrir()    
     return cls.__clientes       # retorna a lista de clientes
   @classmethod
   def listar_id(cls, id):
+    NCliente.abrir()
     for cliente in cls.__clientes:
       if cliente.get_id() == id: return cliente
     return None
   @classmethod
   def atualizar(cls, obj):
+    NCliente.abrir()
     cliente = cls.listar_id(obj.get_id())
     cliente.set_nome(obj.get_nome())
     cliente.set_email(obj.get_email())
     cliente.set_fone(obj.get_fone())
+    NCliente.salvar()
   @classmethod
   def excluir(cls, obj):
-   cliente = cls.listar_id(obj.get_id())
-   cls.__clientes.remove(cliente)    
-
+    NCliente.abrir()
+    cliente = cls.listar_id(obj.get_id())
+    cls.__clientes.remove(cliente)    
+    NCliente.salvar()
+  @classmethod
+  def abrir(cls):
+    try:
+      cls.__clientes = []
+      with open("clientes.json", mode="r") as f:
+        s = json.load(f)
+        for cliente in s:
+          c = Cliente(cliente["_Cliente__id"], cliente["_Cliente__nome"],
+                     cliente["_Cliente__email"], cliente["_Cliente__fone"])
+          cls.__clientes.append(c)
+    except FileNotFoundError:
+      pass
+  @classmethod
+  def salvar(cls):
+    with open("clientes.json", mode="w") as f:
+      json.dump(cls.__clientes, f, default=vars)
 
 class UI:
   @classmethod
