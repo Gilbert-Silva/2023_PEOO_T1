@@ -60,30 +60,6 @@ class UI:
 
 UI.Main()
 
-"""
-
-a = Cliente(1, "Julia", "julia@email.com", "912345678")        #  Cliente.__init__
-b = Cliente(2, "Fernando", "fernando@email.com", "987654321")  #  Cliente.__init__
-x = NCliente()  # NCliente.__init__
-# inserindo os clientes da lista de clientes
-x.inserir(a)
-x.inserir(b)
-# listando os clientes cadastrados
-for cliente in x.listar(): print(cliente)
-# outro cliente com os dados atualizados e mesmo id
-c = Cliente(2, "Fernando", "fernando@ifrn.edu.br", "987654321") 
-x.atualizar(c) # atualiza para os novos dados
-# listando os clientes cadastrados
-for cliente in x.listar(): print(cliente)
-# removendo um cliente da lista
-d = Cliente(2, "", "", "")
-x.excluir(d) # remove o cliente com o id 
-# listando os clientes cadastrados
-for cliente in x.listar(): print(cliente)
-
-
-
-"""
 
 
 
